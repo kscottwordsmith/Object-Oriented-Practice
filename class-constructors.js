@@ -35,9 +35,17 @@ function expect(target) {
 // \___/\____/_/ /_/____/\__/_/   \__,_/\___/\__/\____/_/  /____/
 //
 // Only add code to *THIS* section!
+
+// Defining class Dog
 class Dog {
+  // class needs a constructor function
   constructor(obj) {
+    // is now literally identical to doing it through a function normally
+    // checking to see if the constructor was passed an object
     if (obj) {
+      // It was passed an object, did the object have its own properties?
+      // If so, set this.<property> to that property
+      // If not, set the property to a default
       if (obj.hasOwnProperty('status')) {
         this.status = obj.status
       } else {
@@ -59,6 +67,7 @@ class Dog {
         this.owner = undefined
       }
     } else {
+      // the constructor wasn't passed an object, so we set defaults
       this.status = 'normal'
       this.color = 'grey'
       this.hungry = true
@@ -68,7 +77,9 @@ class Dog {
 }
 
 class Human {
+  // classes need to have a constructor function, passed an object here
   constructor(obj) {
+    // Human needs two methods, .pet and .feed, setting their passed object's properties
     this.pet = function(name) {
       name.status = 'happy'
     }
@@ -78,12 +89,15 @@ class Human {
     }
 
     if (obj) {
+      // if the constructor was passed an object, check to see if it has .cool, if so, use it
       if (obj.hasOwnProperty('cool')) {
         this.cool = obj.cool
       } else {
+        // if it didn't come with .cool, we set it to false. u r not cool, bro
         this.cool = false
       }
     } else {
+      // if we weren't passed an object at all, set .cool to false. not a cool move
       this.cool = false
     }
   }

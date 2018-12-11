@@ -36,8 +36,12 @@ function expect(target) {
 //
 // Only add code to *THIS* section!
 
+// creating function that's passed an object, creating the Dog object
 function Dog(obj) {
+  // checking to see if an object was passed
   if (obj) {
+    // if the object passed in has any of these properties, set this object's properties
+    // to those. Otherwise, set to default
     if (obj.hasOwnProperty('status')) {
       this.status = obj.status
     } else {
@@ -62,6 +66,7 @@ function Dog(obj) {
       this.owner = undefined
     }
   } else {
+    // if no object was passed in, assign all these to defaults
     this.status = 'normal'
     this.color = 'grey'
     this.hungry = true
@@ -70,6 +75,8 @@ function Dog(obj) {
 }
 
 function Human(obj) {
+  // Human needs two functions to change properties in Dog
+  // Hard sets them regardless of what they were before
   this.pet = function(name) {
     name.status = 'happy'
   }
@@ -78,6 +85,8 @@ function Human(obj) {
     name.hungry = false
   }
 
+  // If Human was passed an object, and if that object has cool defined, use that
+  // Otherwise (in both cases) they are uncool
   if (obj) {
     if (obj.hasOwnProperty('cool')) {
       this.cool = obj.cool
